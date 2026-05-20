@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #03060d;
+  --color-bg-secondary: #0a0f1e;
+  --color-bg-tertiary: #0f1626;
+  --color-cyan: #00ffff;
+  --color-cyan-dim: rgba(0, 255, 255, 0.5);
+  --color-border: rgba(0, 255, 255, 0.15);
+  --color-border-active: rgba(0, 255, 255, 0.4);
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: #e2e8f0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Cyber background — subtle hex grid */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at top, rgba(0, 255, 255, 0.05), transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(168, 85, 247, 0.03), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Style range inputs cyber-style */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.4), rgba(0, 255, 255, 0.1));
+  border-radius: 2px;
+}
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.4), rgba(0, 255, 255, 0.1));
+  border-radius: 2px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--color-cyan);
+  border-radius: 50%;
+  margin-top: -6px;
+  box-shadow: 0 0 8px var(--color-cyan-dim);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--color-cyan);
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 8px var(--color-cyan-dim);
+}
+
+/* Number / select inputs */
+input[type="number"],
+select {
+  background: rgba(15, 22, 38, 0.6);
+  border: 1px solid var(--color-border);
+  color: #e2e8f0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-border-active);
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.08);
+}
+
+table {
+  border-collapse: collapse;
+}
